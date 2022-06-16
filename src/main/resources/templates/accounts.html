@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Thymeleaf</title>
+</head>
+<body>
+<h2>Accounts</h2>
+<div align="center">
+    <ul>
+        <a>All accounts</a>
+
+        <li th:each="account : ${accounts}">
+            <span th:text="${account.name}">default</span>
+        </li>
+        <a>Deleted accounts</a>
+        <li th:each="deletedAccount : ${deletedAccounts}">
+            <span th:text="${deletedAccount.name}">default</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

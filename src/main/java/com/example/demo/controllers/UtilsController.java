@@ -9,4 +9,10 @@ public class UtilsController {
     public String applicationStatus() {
         return "UP";
     }
+    @GetMapping("/setup")
+    public String setUp() {
+        //TODO dodaj zapisywanie danych na start, zeby nie klikac n razy w postmanie, a jedynie raz - tego endpointa (jak wczesniej robilismy w testach)
+        return "UP";
+    }
+
 }

@@ -17,6 +17,8 @@ public class Account {
 
     private boolean isDeleted;
 
+    private boolean isVip;
+
     public Account() {
     }
 
@@ -58,5 +60,13 @@ public class Account {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public boolean isVip() {
+        return isVip;
+    }
+
+    public void setVip(boolean vip) {
+        isVip = vip;
     }
 }

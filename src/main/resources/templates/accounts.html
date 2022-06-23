@@ -8,14 +8,26 @@
 <h2>Accounts</h2>
 <div align="center">
     <ul>
-        <a>All accounts</a>
+        <!--//TODO dodaj zapisywanie danych na start, zeby nie klikac n razy w postmanie, a jedynie raz - tego endpointa (jak wczesniej robilismy w testach)-->
+        <!--https://www.baeldung.com/thymeleaf-list-->
 
+        <a>All accounts</a>
+<!--TODO 4 listy: wszystkie, deleted, vip, neither deleted/vip-->
+        <!--TODO wyswietlic wszystkie dane w kolumnach (przyklad ze strony)-->
         <li th:each="account : ${accounts}">
             <span th:text="${account.name}">default</span>
         </li>
         <a>Deleted accounts</a>
         <li th:each="deletedAccount : ${deletedAccounts}">
             <span th:text="${deletedAccount.name}">default</span>
+        </li>
+        <a>Vip accounts</a>
+        <li th:each="vipAccount : ${vipAccounts}">
+            <span th:text="${vipAccount.name}">default</span>
+        </li>
+        <a>Nor Vip Nor Deleted Account</a>
+        <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
+            <span th:text="${norVipNorDeletedAccount.name}">default</span>
         </li>
     </ul>
 </div>

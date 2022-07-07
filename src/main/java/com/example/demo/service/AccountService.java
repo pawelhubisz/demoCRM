@@ -15,6 +15,6 @@ public interface AccountService {
 
     List<Account> getVipAccountList();
 
-    List<Account> getNorVipNorDeletedAccountList();
+    List<Account> getNotVipAndNotDeletedAccountList();
 
 }

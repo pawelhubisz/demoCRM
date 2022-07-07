@@ -19,7 +19,7 @@ public class AccountController {
         model.addAttribute("accounts", accountService.getAccountList());
         model.addAttribute("deletedAccounts", accountService.getDeletedAccountList());
         model.addAttribute("vipAccounts", accountService.getVipAccountList());
-        model.addAttribute("norVipNorDeletedAccounts", accountService.getNorVipNorDeletedAccountList());
+        model.addAttribute("norVipNorDeletedAccounts", accountService.getNotVipAndNotDeletedAccountList());
 
         return "accounts";
     }

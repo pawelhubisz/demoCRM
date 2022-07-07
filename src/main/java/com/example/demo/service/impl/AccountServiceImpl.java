@@ -45,7 +45,6 @@ public class AccountServiceImpl implements AccountService {
 
         //return deletedAccountList;
 
-        // TODO przeanalizowac i zastosowac w Account.isVip
         //return Streamable.of(accountRepository.findAll()).toList().stream().filter(account-> account.isDeleted()==true).toList();
         return Streamable.of(accountRepository.findAll()).toList().stream().filter(Account::isDeleted).toList();
 
@@ -64,14 +63,11 @@ public class AccountServiceImpl implements AccountService {
 
     }
     @Override
-    public List<Account> getNorVipNorDeletedAccountList() {
+    public List<Account> getNotVipAndNotDeletedAccountList() {
         List<Account> accountList = Streamable.of(accountRepository.findAll()).toList();
         List<Account> norVipNorDeletedAccountList = new ArrayList<>();
         for (Account account : accountList) {
-            if (!account.isVip()) {
-                norVipNorDeletedAccountList.add(account);
-            }
-            if (!account.isDeleted()) {
+            if (!(account.isVip()||account.isDeleted())) {
                 norVipNorDeletedAccountList.add(account);
             }
         }

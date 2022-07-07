@@ -7,12 +7,30 @@
 <body>
 <h2>Accounts</h2>
 <div align="center">
+    <form action="#" th:action="@{/account/save}" th:object="${form}"
+          method="post">
+        <fieldset>
+            <input type="submit" id="submitButton" th:value="Save">
+            <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+            <table>
+                <thead>
+                <tr>
+                    <th> title</th>
+                    <th> author</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="account, itemStat : *{accounts}">
+                    <td><input th:field="*{accounts[__${itemStat.index}__].title}" /></td>
+                    <td><input th:field="*{accounts[__${itemStat.index}__].author}" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
     <ul>
-        <!--//TODO dodaj zapisywanie danych na start, zeby nie klikac n razy w postmanie, a jedynie raz - tego endpointa (jak wczesniej robilismy w testach)-->
         <!--https://www.baeldung.com/thymeleaf-list-->
-
         <a>All accounts</a>
-<!--TODO 4 listy: wszystkie, deleted, vip, neither deleted/vip-->
         <!--TODO wyswietlic wszystkie dane w kolumnach (przyklad ze strony)-->
         <li th:each="account : ${accounts}">
             <span th:text="${account.name}">default</span>
@@ -29,7 +47,10 @@
         <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
             <span th:text="${norVipNorDeletedAccount.name}">default</span>
         </li>
+        <!--TODO account majace profile -> petla w petli przy wyswietlaniu-->
+        <!--TODO nazwy profili na czerwonym tle, nazwy accountw na zielonym -> google -> kolorowanie tekstu html-->
     </ul>
+
 </div>
 </body>
 </html>

@@ -58,21 +58,6 @@ public class AccountRestController {
         return accountService.getAccountList();
     }
 
-    @GetMapping("/createAccounts")
-    public String createAccounts() {
-        List<Account> createAccounts = new ArrayList<>();
 
-        for (int i = 1; i <= 3; i++) {
-            createAccounts.add(new Account());
-            createAccounts.add(new Account());
-            createAccounts.add(new Account());
-            createAccounts.add(new Account().setVip(true));
-            createAccounts.add(new Account());
-            createAccounts.add(new Account());
-        }
-
-        model.addAttribute("form", createAccounts);
-        return "books/createBooksForm";
-    }
 }
 

@@ -1,20 +1,24 @@
 package com.example.demo.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
+    private Long accountId;
     private String name;
     private String login;
     private String email;
+    public String title;
+    public String author;
 
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Profile> profileList;
     private boolean isDeleted;
 
     private boolean isVip;
@@ -22,12 +26,29 @@ public class Account {
     public Account() {
     }
 
-    public Long getUserId() {
-        return userId;
+    public Account(Long accountId, String name, String login, String email, boolean isDeleted, boolean isVip) {
+        this.accountId = accountId;
+        this.name = name;
+        this.login = login;
+        this.email = email;
+        this.isDeleted = isDeleted;
+        this.isVip = isVip;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public Account(String name, String login, String email, boolean isDeleted, boolean isVip) {
+        this.name = name;
+        this.login = login;
+        this.email = email;
+        this.isDeleted = isDeleted;
+        this.isVip = isVip;
+    }
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
     public String getName() {
@@ -68,5 +89,16 @@ public class Account {
 
     public void setVip(boolean vip) {
         isVip = vip;
+    }
+
+    public List<Profile> getProfileList() {
+        if (profileList == null) {
+            profileList = new ArrayList<>();
+        }
+        return profileList;
+    }
+
+    public void setProfileList(List<Profile> profileList) {
+        this.profileList = profileList;
     }
 }

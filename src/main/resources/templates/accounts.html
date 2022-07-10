@@ -4,53 +4,66 @@
     <meta charset="ISO-8859-1">
     <title>Thymeleaf</title>
 </head>
-<body>
+<body bgcolor="#fffff" text="#3F51B5">
 <h2>Accounts</h2>
 <div align="center">
-    <form action="#" th:action="@{/account/save}" th:object="${form}"
-          method="post">
-        <fieldset>
-            <input type="submit" id="submitButton" th:value="Save">
-            <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
-            <table>
-                <thead>
-                <tr>
-                    <th> title</th>
-                    <th> author</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="account, itemStat : *{accounts}">
-                    <td><input th:field="*{accounts[__${itemStat.index}__].title}" /></td>
-                    <td><input th:field="*{accounts[__${itemStat.index}__].author}" /></td>
-                </tr>
-                </tbody>
-            </table>
-        </fieldset>
-    </form>
-    <ul>
-        <!--https://www.baeldung.com/thymeleaf-list-->
-        <a>All accounts</a>
-        <!--TODO wyswietlic wszystkie dane w kolumnach (przyklad ze strony)-->
-        <li th:each="account : ${accounts}">
-            <span th:text="${account.name}">default</span>
-        </li>
-        <a>Deleted accounts</a>
-        <li th:each="deletedAccount : ${deletedAccounts}">
-            <span th:text="${deletedAccount.name}">default</span>
-        </li>
-        <a>Vip accounts</a>
-        <li th:each="vipAccount : ${vipAccounts}">
-            <span th:text="${vipAccount.name}">default</span>
-        </li>
-        <a>Nor Vip Nor Deleted Account</a>
-        <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
-            <span th:text="${norVipNorDeletedAccount.name}">default</span>
-        </li>
-        <!--TODO account majace profile -> petla w petli przy wyswietlaniu-->
-        <!--TODO nazwy profili na czerwonym tle, nazwy accountw na zielonym -> google -> kolorowanie tekstu html-->
-    </ul>
+    <style> td { border: 1px solid black; } </style>
+    <table>
+        <thead>
+        <tr>
+            <th>Account type</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>All accounts</th>
+            <td style="background-color: green; ">
+                <li th:each="account : ${accounts}">
+                    <span th:text="${account.name}">default</span>
+                    <span th:text="${account.profileList.size}">default</span>
 
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Deleted accounts</th>
+            <td style="background-color: green; ">
+                <li th:each="deletedAccount : ${deletedAccounts}">
+                    <span th:text="${deletedAccount.name}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Vip accounts</th>
+            <td style="background-color: green; ">
+                <li th:each="vipAccount : ${vipAccounts}">
+                    <span th:text="${vipAccount.name}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Not Vip Not Deleted Account</th>
+            <td style="background-color: green; ">
+                <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
+                    <span th:text="${norVipNorDeletedAccount.name}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Account with profiles</th>
+
+                <li th:each="account1 : ${accountsWithNoProfiles}">
+                    <span th:text="${account1.name}">default</span>
+                    <span th:text="${account1.profileList.size}">default</span>
+
+
+                </li>
+
+        </tr>
+        </tbody>
+    </table>
+    <!--TODO page layout, ogarn?? stron? ?eby by?a czytelna-->
 </div>
 </body>
 </html>

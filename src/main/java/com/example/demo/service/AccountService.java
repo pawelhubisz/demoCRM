@@ -17,4 +17,6 @@ public interface AccountService {
 
     List<Account> getNotVipAndNotDeletedAccountList();
 
+    List<Account> getAccountWithNoProfileList();
+
 }

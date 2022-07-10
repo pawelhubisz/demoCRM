@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.repository.AccountRepository;
 import com.example.demo.service.AccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class AccountController {
         model.addAttribute("deletedAccounts", accountService.getDeletedAccountList());
         model.addAttribute("vipAccounts", accountService.getVipAccountList());
         model.addAttribute("norVipNorDeletedAccounts", accountService.getNotVipAndNotDeletedAccountList());
-
+        model.addAttribute("accountsWithNoProfiles", accountService.getAccountWithNoProfileList());
         return "accounts";
     }
 

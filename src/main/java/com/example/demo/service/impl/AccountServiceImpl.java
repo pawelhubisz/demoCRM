@@ -62,19 +62,23 @@ public class AccountServiceImpl implements AccountService {
         return Streamable.of(accountRepository.findAll()).toList().stream().filter(Account::isVip).toList();
 
     }
+
     @Override
     public List<Account> getNotVipAndNotDeletedAccountList() {
         List<Account> accountList = Streamable.of(accountRepository.findAll()).toList();
         List<Account> norVipNorDeletedAccountList = new ArrayList<>();
         for (Account account : accountList) {
-            if (!(account.isVip()||account.isDeleted())) {
+            if (!(account.isVip() || account.isDeleted())) {
                 norVipNorDeletedAccountList.add(account);
             }
         }
         //return Streamable.of(accountRepository.findAll()).toList().stream().filter(account-> !account.isDeleted()).toList();
-        return Streamable.of(accountRepository.findAll()).toList().stream().filter(account-> !account.isVip()).toList().stream().filter(account-> !account.isDeleted()).toList();
+        return Streamable.of(accountRepository.findAll()).toList().stream().filter(account -> !account.isVip()).toList().stream().filter(account -> !account.isDeleted()).toList();
 
     }
 
-
+    @Override
+    public List<Account> getAccountWithNoProfileList() {
+        return Streamable.of(accountRepository.findAll()).toList().stream().filter(account -> account.getProfileList().size()>0).toList();
+    }
 }

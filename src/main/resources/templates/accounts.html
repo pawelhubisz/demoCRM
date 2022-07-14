@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Thymeleaf</title>
+</head>
+<body bgcolor="#ccccff" text="#000000">
+<h2>Accounts</h2>
+<div style="width: 1000px; height: 500px;">
+    <style> table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+    th,td{
+        border: 2px solid green;
+        padding: 15px;
+    }
+
+
+    </style>
+    <table>
+        <thead>
+        <tr>
+            <th>Account type</th>
+            <th>Name</th>
+            <th>Login</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>All accounts</th>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accounts}">
+                    <span th:text="${account.name}">default</span>
+                    <span th:text="${account.profileList.size}">default</span>
+
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accounts}">
+                    <span th:text="${account.login}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accounts}">
+                    <span th:text="${account.email}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Deleted accounts</th>
+            <td style="background-color: #ff9999;border: 2px solid green; ">
+                <li th:each="deletedAccount : ${deletedAccounts}">
+                    <span th:text="${deletedAccount.name}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999;border: 2px solid green; ">
+                <li th:each="deletedAccount : ${deletedAccounts}">
+                    <span th:text="${deletedAccount.login}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999;border: 2px solid green; ">
+                <li th:each="deletedAccount : ${deletedAccounts}">
+                    <span th:text="${deletedAccount.email}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Vip accounts</th>
+            <td style="background-color: #ff9999; ">
+                <li th:each="vipAccount : ${vipAccounts}">
+                    <span th:text="${vipAccount.name}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="vipAccount : ${vipAccounts}">
+                    <span th:text="${vipAccount.login}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="vipAccount : ${vipAccounts}">
+                    <span th:text="${vipAccount.email}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Not Vip Not Deleted Account</th>
+            <td style="background-color: #ff9999; ">
+                <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
+                    <span th:text="${norVipNorDeletedAccount.name}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
+                    <span th:text="${norVipNorDeletedAccount.login}">default</span>
+                </li>
+            </td>
+            <td style="background-color: #ff9999; ">
+                <li th:each="norVipNorDeletedAccount : ${norVipNorDeletedAccounts}">
+                    <span th:text="${norVipNorDeletedAccount.email}">default</span>
+                </li>
+            </td>
+        </tr>
+        <tr>
+            <th>Account with profiles</th>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accountsWithNoProfiles}">
+                    <span th:text="${account.name}">default</span>
+                    <span th:text="${account.profileList.size}">default</span>
+                </li>
+            <td/>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accountsWithNoProfiles}">
+                    <span th:text="${account.login}">default</span>
+                    <span th:text="${account.profileList.size}">default</span>
+                </li>
+            <td/>
+            <td style="background-color: #ff9999; ">
+                <li th:each="account : ${accountsWithNoProfiles}">
+                    <span th:text="${account.email}">default</span>
+                    <span th:text="${account.profileList.size}">default</span>
+                </li>
+            <td/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

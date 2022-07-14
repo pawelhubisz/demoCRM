@@ -7,8 +7,6 @@ import java.util.List;
 public interface AccountService {
     void saveAccount(Account account);
 
-    void saveDeletedAccount(Account account);
-
     List<Account> getAccountList();
 
     List<Account> getDeletedAccountList();

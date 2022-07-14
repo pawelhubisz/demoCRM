@@ -22,10 +22,6 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.save(account);
     }
 
-    @Override
-    public void saveDeletedAccount(Account account) {
-        accountRepository.save(account);
-    }
 
     @Override
     public List<Account> getAccountList() {

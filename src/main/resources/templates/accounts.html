@@ -125,7 +125,7 @@
             <td style="background-color: #ff9999; ">
                 <ul style="list-style: none;">
                     <li th:each="account : ${accountsWithNoProfiles}">
-                        <div th:text="${account.email}">default</div>
+                        <span th:text="${account.email}">default</span>
                     </li>
                 </ul>
             <td/>

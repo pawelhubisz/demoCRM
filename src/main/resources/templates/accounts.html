@@ -18,6 +18,7 @@
 
 
 
+
     </style>
     <table>
         <thead>
@@ -109,26 +110,23 @@
             <th>Account with profiles</th>
             <td style="background-color: #ff9999; ">
                 <ul style="list-style: none;">
-
-                <li th:each="account : ${accountsWithNoProfiles}">
-                    <div th:text="${account.name}">default</div>
-                </li>
-                    </ul>
-            <td/>
-            <td style="background-color: #ff9999; ">
-                <ul style="list-style: none;">
-
-                <li th:each="account : ${accountsWithNoProfiles}">
-                    <div th:text="${account.login}">default</div>
-                </li>
+                    <li th:each="account : ${accountsWithNoProfiles}">
+                        <div th:text="${account.name}">default</div>
+                    </li>
                 </ul>
             <td/>
             <td style="background-color: #ff9999; ">
                 <ul style="list-style: none;">
-
-                <li th:each="account : ${accountsWithNoProfiles}">
-                    <div th:text="${account.email}">default</div>
-                </li>
+                    <li th:each="account : ${accountsWithNoProfiles}">
+                        <div th:text="${account.login}">default</div>
+                    </li>
+                </ul>
+            <td/>
+            <td style="background-color: #ff9999; ">
+                <ul style="list-style: none;">
+                    <li th:each="account : ${accountsWithNoProfiles}">
+                        <div th:text="${account.email}">default</div>
+                    </li>
                 </ul>
             <td/>
         </tr>
